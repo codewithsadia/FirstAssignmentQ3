@@ -1,6 +1,5 @@
 import streamlit as st  # type: ignore # for web app
 import pandas as pd # type: ignore
-import plotly.express as px # type: ignore
 import os
 from io import BytesIO  # for file upload
 
@@ -60,7 +59,7 @@ if uploaded_files:
             st.bar_chart(df.select_dtypes(include='number').iloc[:, :-2])
         
         # convert the file --> CSV To Excel
-        st.subheader("🔄️*️Conversion Options")
+        st.subheader("🔄️*Conversion Options")
         conversion_type = st.radio(f"Convert {uploaded_file.name} to", ("CSV", "Excel"))
         if st.button(f"Convert {uploaded_file.name} to {conversion_type}"):
             buffer = BytesIO()
