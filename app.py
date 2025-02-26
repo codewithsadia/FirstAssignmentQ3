@@ -71,7 +71,7 @@ if uploaded_files:
                 file_ext = ".csv"
                 mime_type = "text/csv"
             elif conversion_type == "Excel":
-                with pd.ExcelWriter(buffer, engine="xlsxwriter") as writer:
+                with pd.ExcelWriter(buffer, engine= xlsxwriter) as writer: # type: ignore
                     df.to_excel(writer, index=False)
                     writer.close()  # Ensures proper file saving
                 file_ext = ".xlsx"
