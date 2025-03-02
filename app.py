@@ -1,5 +1,6 @@
 import streamlit as st  # type: ignore # for web app
 import pandas as pd  # type: ignore
+import xlsxwriter   # type: ignore
 import os
 from io import BytesIO  # for file upload
 
@@ -72,7 +73,7 @@ if uploaded_files:
                 mime_type = "text/csv"
             elif conversion_type == "Excel":
                 engine = "xlsxwriter"  # Pehle define karna zaroori hai
-                with pd.ExcelWriter(buffer, engine= xlsxwriter) as writer: # type: ignore
+                with pd.ExcelWriter(buffer, engine= "xlsxwriter") as writer: # type: ignore
                     df.to_excel(writer, index=False)
                     writer.close()  # Ensures proper file saving
                 file_ext = ".xlsx"
